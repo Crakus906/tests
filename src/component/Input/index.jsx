@@ -12,19 +12,28 @@ export default function Input(props) {
     id,
     value,
     onClick,
-    isDisabled
+    isDisabled,
+    onChange
   } = props;
-  const [field] = useField(props);
+
+  const [field] = useField(name);
+
+  const handleChange = (e) => {
+    if (onChange) onChange(e.target);
+    field.onChange(e);
+  };
 
   return (
     <input
+      {...field}
       type={type}
       className={cx(st.cardContainer, {[st.active]: active})}
       id={id}
       name={field.name}
-      value={field.name}
+      value={field.value || value}
       disabled={isDisabled}
       onClick={onClick}
+      onChange={handleChange}
     />
   );
 }

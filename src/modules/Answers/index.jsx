@@ -4,16 +4,17 @@ import Input from '../../component/Input';
 
 import st from "./style.module.scss"
 
-export default function Answers({answers, name, setAnswerId, isDisabled, id}) {
+export default function Answers({answers, name, setAnswerId, isDisabled, onChange}) {
 
     return (
         <div className={st.wrapperAnswers}>
-           {answers && answers.map(e => (
+           {answers ? answers.map(e => (
                 <label 
                     htmlFor={e.value} 
                     key={e.value} 
                     className={st.blockAnswer}
                 >
+                    {/* {console.log(e, name)} */}
                     <Input
                         id={e.value}
                         type="radio" 
@@ -24,7 +25,7 @@ export default function Answers({answers, name, setAnswerId, isDisabled, id}) {
                     />
                     <div>{e.label}</div>
                 </label>
-            ))}
+            )): <Input name={name} onChange={onChange} id={name}/> }
         </div>
     )
 }
