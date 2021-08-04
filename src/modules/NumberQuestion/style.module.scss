@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.wrapperNumQuestion {
+    display: flex;
+}
+.number {
+    background-color: $orange;
+    color: $black-green;
+    padding: 0.6rem 1rem;
+    margin: 0.7rem;
+    border-radius: 50%;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+.active {
+    background-color: $black-green;
+    color: $orange;
+    padding: 0.6rem 1rem;
+    margin: 0.7rem;
+    border-radius: 50%;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
