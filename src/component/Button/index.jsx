@@ -8,7 +8,6 @@ export default function Button(props) {
     className,
     children,
     onClick,
-    ...otherProps
   } = props;
 
   return (
@@ -16,7 +15,6 @@ export default function Button(props) {
       type={type}
       className={`${st.button} ${className}`}
       onClick={onClick}
-      { ...otherProps }
     >
       { children }
     </button>
@@ -25,7 +23,7 @@ export default function Button(props) {
 
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'reset', 'submit']),
-  // className: PropTypes.string,
+  className: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
 };

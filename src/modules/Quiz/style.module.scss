@@ -2,7 +2,8 @@
 
 .wrapperQuiz {
     width: 40%;
-    border: 2px solid #21cbff;
+    background-color: $green;
+    box-shadow: 0px 15px 10px 4px $green-shadow;
     border-radius: 10px;
     padding: 20px;
 }

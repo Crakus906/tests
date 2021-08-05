@@ -1,0 +1,13 @@
+@import'../../styles/variables.scss';
+
+.wrapperTimer {
+    border-radius: 50%;
+    display: flex;
+    height: 3rem;
+    width: 3.3rem;
+    justify-content: center;
+    align-items: center;
+    border: 0.3rem solid $light-green;
+    color: $white;
+    position: relative;
+}

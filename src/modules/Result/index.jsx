@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import st from "./style.module.scss"
+export default function Result({ result }) {
+  const res = result[result.length - 1];
 
-export default function Result() {
-   
-    return (
-        <div>
-            res
-        </div>
-    )
+  return (
+    <div>
+      <pre>{JSON.stringify(res, 0, '  ')}</pre>
+    </div>
+  );
 }
+Result.propTypes = {
+  result: PropTypes.node.isRequired,
+};

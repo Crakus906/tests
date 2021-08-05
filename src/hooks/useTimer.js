@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-export default function useTimer(time) {
-    const [counter, setCounter] = useState(time);
+export default function useTimer(callback, delay) {
+  const savedCallback = useRef();
 
-    useEffect(() => {
-       counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
-    }, [counter]);
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
 
-    return {
-        counter
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
     }
+    if (delay) {
+      const id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
 }

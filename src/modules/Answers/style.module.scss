@@ -2,9 +2,14 @@
 
 .wrapperAnswers {
     width: 100%;    
+    display: block;
 }
 .blockAnswer {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+}
+.input {
+    margin-bottom: 2rem;
+    width: 96.5%;
 }
