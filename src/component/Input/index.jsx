@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useField } from 'formik';
 import PropTypes from 'prop-types';
@@ -24,7 +23,6 @@ export default function Input(props) {
 
   return (
     <input
-      {...field}
       type={type}
       className={`${st.input} ${className}`}
       id={id}
@@ -48,7 +46,7 @@ Input.propTypes = {
   className: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
-  isDisabled: PropTypes.bool,
+  isDisabled: PropTypes.string,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
 };

@@ -11,5 +11,5 @@ export default function Result({ result }) {
   );
 }
 Result.propTypes = {
-  result: PropTypes.node.isRequired,
+  result: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

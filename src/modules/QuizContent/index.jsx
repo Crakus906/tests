@@ -40,10 +40,10 @@ export default function QuizContent(props) {
   };
 
   if (!questions) return null;
-
   return (
     <Formik
       initialValues={{ 'question-4': '', 'question-5': '' }}
+      onSubmit={{}}
     >
       <Form className={st.wrapperQuizContent}>
         <div className={st.titleBlock}>
@@ -76,16 +76,39 @@ export default function QuizContent(props) {
   );
 }
 
+QuizContent.defaultProps = {
+  time: PropTypes.number,
+};
+
 QuizContent.propTypes = {
-  questions: PropTypes.node.isRequired,
+  questions: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    img: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    })),
+    question: PropTypes.string,
+    time: PropTypes.number,
+  }).isRequired,
   count: PropTypes.number.isRequired,
   setCount: PropTypes.func.isRequired,
-  time: PropTypes.number.isRequired,
-  formValues: PropTypes.node.isRequired,
+  time: PropTypes.number,
+  formValues: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setFormValues: PropTypes.func.isRequired,
   setAnswerData: PropTypes.func.isRequired,
-  answerData: PropTypes.node.isRequired,
+  answerData: PropTypes.shape({}).isRequired,
   handleChangeTime: PropTypes.func.isRequired,
-  questionsTime: PropTypes.node.isRequired,
-  question: PropTypes.node.isRequired,
+  questionsTime: PropTypes.objectOf(PropTypes.number).isRequired,
+  question: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    })),
+    question: PropTypes.string,
+    time: PropTypes.number,
+  })).isRequired,
 };

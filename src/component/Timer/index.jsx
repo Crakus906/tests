@@ -19,6 +19,6 @@ Timer.defaultProps = {
 };
 
 Timer.propTypes = {
-  time: PropTypes.string.isRequired,
+  time: PropTypes.number.isRequired,
   handleChange: PropTypes.func,
 };

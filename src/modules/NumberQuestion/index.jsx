@@ -28,8 +28,17 @@ export default function NumberQuestion({
 }
 
 NumberQuestion.propTypes = {
-  dataId: PropTypes.string.isRequired,
+  dataId: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    })),
+    question: PropTypes.string,
+    time: PropTypes.number,
+  })).isRequired,
   count: PropTypes.number.isRequired,
   setCount: PropTypes.func.isRequired,
-  answerData: PropTypes.func.isRequired,
+  answerData: PropTypes.shape({}).isRequired,
 };

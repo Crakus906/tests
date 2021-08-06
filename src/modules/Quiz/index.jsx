@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import NumberQuestion from '../NumberQuestion/index';
@@ -55,5 +56,14 @@ export default function Quiz({ dataQuestions }) {
 }
 
 Quiz.propTypes = {
-  dataQuestions: PropTypes.node.isRequired,
+  dataQuestions: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    })),
+    question: PropTypes.string,
+    time: PropTypes.number,
+  })).isRequired,
 };
